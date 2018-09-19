@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'vets')}">
+
+  <body>
+  
+  
+    <h2>Veterinarian Information</h2>
+  
+  
+    <table class="table table-striped" th:object="${vet}">
+      <tr>
+        <th>Last Name</th>
+        <td><b th:text="*{lastName}"></b></td>
+      </tr>
+      <tr>
+        <th>First Name</th>
+        <td><b th:text="*{firstName}"></b></td>
+      </tr>
+      <tr>
+        <th>Specialty</th>
+        <td>
+            <ul th:each="specialty : *{specialties}">
+                <li><b th:text="${specialty.name}"></b></li>
+            </ul>
+        </td>
+      </tr>
+    </table>
+    <a class="btn btn-default" th:href="@{@{{id}/edit(id=${vet.id})}}">Edit</a>
+  </body>
+
+</html>

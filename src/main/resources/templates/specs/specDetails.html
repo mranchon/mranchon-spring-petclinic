@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body},'specs')}">
+
+    <body>
+
+        <h2>Edit specialty</h2>
+        <form th:object="${spec}" class="form-horizontal" id="add-spec-form" th:method="POST">
+            <div class="form-group has-feedback">
+                <input
+                    th:replace="~{fragments/inputField :: input ('Name', 'name', 'text')}" />
+                
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn-default" type="submit" name="edit" value="edit">Edit</button>
+                </div>
+            </div>
+        </form>
+        
+        <form th:object="${spec}" class="form-horizontal" id="add-spec-form" th:method="DELETE">
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn-default" type="submit" name="delete" value="delete">Delete</button>
+                </div>
+            </div>
+        </form>
+        
+    </body>
+</html>
